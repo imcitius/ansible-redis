@@ -1,0 +1,4 @@
+---
+
+# vars file for redis.role
+redis_user: redis

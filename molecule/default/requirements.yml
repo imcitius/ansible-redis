@@ -1,0 +1,5 @@
+---
+
+- name: redis.role
+  src: git@jgit.me:ansible/roles/redis.role.git
+  scm: git

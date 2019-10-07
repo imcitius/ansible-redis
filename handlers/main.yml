@@ -1,0 +1,9 @@
+---
+# handlers file for redis.role
+
+- name: restart redis
+  service:
+    name: redis
+    state: restarted
+    enabled: true
+  when: ansible_virtualization_type != 'docker'

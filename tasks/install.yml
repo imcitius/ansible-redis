@@ -1,0 +1,33 @@
+---
+
+- name: Import REMI repo (CentOS)
+  yum:
+    name: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    state: present
+  when: ansible_distribution == 'CentOS'
+
+- name: Import REMI repo (Fedora)
+  dnf:
+    name: "http://rpms.remirepo.net/fedora/remi-release-{{ansible_distribution_version}}.rpm"
+    state: present
+  when: ansible_distribution == 'Fedora'
+
+- name: Enable REMI repo
+  ini_file:
+    dest: /etc/yum.repos.d/remi.repo
+    section: remi
+    option: enabled
+    value: 1
+
+- name: Install redis
+  package:
+    name: "redis"
+    state: present
+
+- name: set vm.overcommit_memory=1
+  sysctl:
+    name: vm.overcommit_memory
+    value: 1
+    sysctl_file: /etc/sysctl.conf
+    reload: true
+  when: ansible_virtualization_type != 'docker'

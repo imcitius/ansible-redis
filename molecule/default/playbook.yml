@@ -1,0 +1,8 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    hostname: redis-0
+    ansible_remote_user: root
+  roles:
+    - role: redis.role
