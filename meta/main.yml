@@ -12,6 +12,4 @@ galaxy_info:
   galaxy_tags: []
 
 dependencies:
-  - name: ansible-transparent-huge-pages
-    src: git@github.com:imcitius/ansible-transparent-huge-pages.git
-    scm: git
+  - { role: imcitius.ansible_transparent_huge_pages }
