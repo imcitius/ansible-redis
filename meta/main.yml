@@ -10,3 +10,8 @@ galaxy_info:
       - 7
   - name: Fedora
   galaxy_tags: []
+
+dependencies:
+  - name: ansible-transparent-huge-pages
+    src: git@github.com:imcitius/ansible-transparent-huge-pages.git
+    scm: git
